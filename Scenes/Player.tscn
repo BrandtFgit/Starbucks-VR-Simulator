@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmn2oxv5s2uu5"]
+
+[ext_resource type="PackedScene" uid="uid://6yhiqiehet35" path="res://Scenes/hand_mesh.tscn" id="1_sjayi"]
+
+[node name="Player" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+current = true
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, -1.6)
+tracker = &"left_hand"
+
+[node name="HandMesh" parent="XROrigin3D/LeftHand" instance=ExtResource("1_sjayi")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -1.6)
+tracker = &"right_hand"
+
+[node name="HandMesh" parent="XROrigin3D/RightHand" instance=ExtResource("1_sjayi")]

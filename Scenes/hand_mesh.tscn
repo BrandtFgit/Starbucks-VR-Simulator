@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6yhiqiehet35"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t71if"]
+
+[node name="HandMesh" type="MeshInstance3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.0707107, 0.0707107, 0, -0.0707107, 0.0707107, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_t71if")
