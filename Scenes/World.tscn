@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmn2oxv5s2uu5"]
+[gd_scene load_steps=17 format=3 uid="uid://bmn2oxv5s2uu5"]
 
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_ud4ar"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_hcwy6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Material" uid="uid://c1mgbi2m6umpi" path="res://Assets/Materials/Marble/Marble.tres" id="5_is7sk"]
 [ext_resource type="Material" uid="uid://c4it8ayl2jks4" path="res://Assets/Materials/Wood1/Wood1.tres" id="7_d8ts4"]
 [ext_resource type="PackedScene" uid="uid://brmjelwbxbi34" path="res://Scenes/Cup.tscn" id="8_h6hbw"]
+[ext_resource type="Material" uid="uid://b3a2yo123h5a0" path="res://Assets/Materials/Metal/Metal.tres" id="11_0y3pb"]
+[ext_resource type="PackedScene" uid="uid://dvqoju6fyrds0" path="res://Scenes/CupHolders.tscn" id="12_pu8jo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rt5r6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,6 +24,10 @@ sky_material = SubResource("ProceduralSkyMaterial_rt5r6")
 background_mode = 2
 sky = SubResource("Sky_unsjv")
 tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow4l8"]
@@ -84,7 +90,7 @@ size = Vector3(6.64844, 0.0742188, 0.577148)
 material = ExtResource("5_is7sk")
 
 [node name="Room" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.149966, -3.8332)
 use_collision = true
 flip_faces = true
 size = Vector3(14.3416, 3, 10.0664)
@@ -182,3 +188,17 @@ omni_range = 3.886
 
 [node name="PickableObject" parent="." instance=ExtResource("8_h6hbw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38483, -0.54725, -0.458683)
+
+[node name="Machine" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495219, 0.969601)
+size = Vector3(1.25684, 1.72632, 0.34375)
+material = ExtResource("11_0y3pb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Machine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.407149, 0.122493, -0.0808341)
+operation = 2
+size = Vector3(0.274414, 0.428711, 0.201416)
+material = ExtResource("11_0y3pb")
+
+[node name="CupHolders" parent="." instance=ExtResource("12_pu8jo")]
+transform = Transform3D(-0.998091, 0, -0.0617627, 0, 1, 0, 0.0617627, 0, -0.998091, 0.688758, -0.601705, 0.880932)

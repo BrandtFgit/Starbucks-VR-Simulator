@@ -24,6 +24,14 @@ XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[layer_names]
+
+3d_physics/layer_1="static world"
+3d_physics/layer_2="dynamic world"
+3d_physics/layer_3="objects"
+3d_physics/layer_17="held object"
+3d_physics/layer_20="player body"
+
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
