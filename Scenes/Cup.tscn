@@ -121,7 +121,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189555, 0.0561019, -0.079
 hand_pose = SubResource("Resource_hq47c")
 
 [node name="GrabPointHandRight" parent="." index="5" instance=ExtResource("8_pg6br")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032107, 0.0619941, -0.0912724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00175534, 0.0342804, -0.0912724)
+visible = true
 hand_pose = SubResource("Resource_1g0k3")
 
 [editable path="CoffeeCup"]

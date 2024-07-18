@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmn2oxv5s2uu5"]
+[gd_scene load_steps=18 format=3 uid="uid://bmn2oxv5s2uu5"]
 
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_ud4ar"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_hcwy6"]
@@ -11,7 +11,8 @@
 [ext_resource type="Material" uid="uid://c4it8ayl2jks4" path="res://Assets/Materials/Wood1/Wood1.tres" id="7_d8ts4"]
 [ext_resource type="PackedScene" uid="uid://brmjelwbxbi34" path="res://Scenes/Cup.tscn" id="8_h6hbw"]
 [ext_resource type="Material" uid="uid://b3a2yo123h5a0" path="res://Assets/Materials/Metal/Metal.tres" id="11_0y3pb"]
-[ext_resource type="PackedScene" uid="uid://dvqoju6fyrds0" path="res://Scenes/CupHolders.tscn" id="12_pu8jo"]
+[ext_resource type="PackedScene" uid="uid://dp8l12ur8448d" path="res://Scenes/CupHolders.tscn" id="12_pu8jo"]
+[ext_resource type="PackedScene" uid="uid://chhwl5g8eslsm" path="res://Assets/Models/TableSet.glb" id="13_uqg7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rt5r6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,10 +25,6 @@ sky_material = SubResource("ProceduralSkyMaterial_rt5r6")
 background_mode = 2
 sky = SubResource("Sky_unsjv")
 tonemap_mode = 2
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow4l8"]
@@ -191,6 +188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38483, -0.54725, -0.458683
 
 [node name="Machine" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495219, 0.969601)
+use_collision = true
 size = Vector3(1.25684, 1.72632, 0.34375)
 material = ExtResource("11_0y3pb")
 
@@ -200,5 +198,41 @@ operation = 2
 size = Vector3(0.274414, 0.428711, 0.201416)
 material = ExtResource("11_0y3pb")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.58876, -0.519027)
+use_collision = true
+size = Vector3(0.279541, 0.0905762, 0.304443)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, -1, 6.14145e-08, 0, -4.37114e-08, -1.405, 1, -4.37114e-08, 2.68451e-15, 0, 0.0476726, -0.0568587)
+radius = 0.078
+height = 0.275
+sides = 23
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0930482, -0.127014)
+size = Vector3(0.26, 0.291323, 0.0712891)
+
 [node name="CupHolders" parent="." instance=ExtResource("12_pu8jo")]
-transform = Transform3D(-0.998091, 0, -0.0617627, 0, 1, 0, 0.0617627, 0, -0.998091, 0.688758, -0.601705, 0.880932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.706388, -0.519088, 0.960824)
+picked_up_layer = null
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="TableSet" parent="Node3D" instance=ExtResource("13_uqg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30343, -1.35003, -2.55362)
+
+[node name="TableSet2" parent="Node3D" instance=ExtResource("13_uqg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.387197, -1.35003, -2.87416)
+
+[node name="TableSet3" parent="Node3D" instance=ExtResource("13_uqg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30343, -1.35003, -5.89367)
+
+[node name="TableSet4" parent="Node3D" instance=ExtResource("13_uqg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.387197, -1.35003, -6.21421)
+
+[node name="TableSet5" parent="Node3D" instance=ExtResource("13_uqg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9872, -1.35003, -2.87416)
+
+[node name="TableSet6" parent="Node3D" instance=ExtResource("13_uqg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9872, -1.35003, -6.21421)
